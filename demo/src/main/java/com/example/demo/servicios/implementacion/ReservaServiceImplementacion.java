@@ -12,25 +12,17 @@ public class ReservaServiceImplementacion implements ReservaService {
     @Autowired
     private ReservaRepository reservaRepository;
     @Override
-    public Reserva agregarReserva(Reserva reserva) {
+    public Reserva agregarOActualizarReserva(Reserva reserva) {
         return reservaRepository.save(reserva);
     }
-
     @Override
     public List<Reserva> buscarReservas() {
         return reservaRepository.findAll();
     }
-
     @Override
     public Reserva buscarReserva(Long reservaId) {
         return reservaRepository.findById(reservaId).orElse(null);
     }
-
-    @Override
-    public Reserva actualizarReserva(Reserva reserva) {
-        return reservaRepository.save(reserva);
-    }
-
     @Override
     public void eliminarReserva(Long reservaId) {
         Reserva reserva = new Reserva();

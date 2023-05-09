@@ -16,7 +16,7 @@ public class PilotoController {
     private PilotoService pilotoService;
     @PostMapping("/")
     public ResponseEntity<Piloto> guardarPiloto(@RequestBody Piloto piloto){
-        Piloto pilotoGuardado = pilotoService.agregarPiloto(piloto);
+        Piloto pilotoGuardado = pilotoService.agregarOActualizarPiloto(piloto);
         return ResponseEntity.ok(pilotoGuardado);
     }
     @GetMapping
@@ -29,7 +29,7 @@ public class PilotoController {
     }
     @PutMapping("/")
     public Piloto actualizarPiloto(@RequestBody Piloto piloto){
-        return pilotoService.actualizarPiloto(piloto);
+        return pilotoService.agregarOActualizarPiloto(piloto);
     }
     @DeleteMapping("/{pilotoId}")
     public void eliminarPiloto(@PathVariable("pilotoId") Long pilotoId){

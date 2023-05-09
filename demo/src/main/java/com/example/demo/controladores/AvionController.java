@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/aviones")
 @CrossOrigin("*")
@@ -16,8 +18,12 @@ public class AvionController {
 
     @PostMapping("/")
     public ResponseEntity<Avion> guardarAvion(@RequestBody Avion avion){
-        Avion avionGuardado = avionService.agregarAvion(avion);
+        Avion avionGuardado = avionService.agregarOActualizarAvion(avion);
         return ResponseEntity.ok(avionGuardado);
+    }
+    @GetMapping
+    public List<Avion>  buscarAviones(){
+        return avionService.obtenerAviones();
     }
     @GetMapping("/{avionId}")
     public Avion buscarAvionPorId(@PathVariable("avionId") Long avionId){
@@ -25,7 +31,7 @@ public class AvionController {
     }
     @PutMapping("/")
     public Avion actualizarAvion(@RequestBody Avion avion){
-        return avionService.actualizarAvion(avion);
+        return avionService.agregarOActualizarAvion(avion);
     }
 
     @DeleteMapping("/{avionId}")

@@ -10,26 +10,19 @@ import java.util.List;
 @Service
 public class FacturaServiceImplementacion implements FacturaService {
     @Autowired FacturaRepository facturaRepository;
+
     @Override
-    public Factura agregarFactura(Factura factura) {
+    public Factura agregaroActualizarFactura(Factura factura) {
         return facturaRepository.save(factura);
     }
-
     @Override
     public List<Factura> buscarFacturas() {
         return facturaRepository.findAll();
     }
-
     @Override
     public Factura buscarFactura(Long facturaId) {
         return facturaRepository.findById(facturaId).orElse(null);
     }
-
-    @Override
-    public Factura actualizarFactura(Factura factura) {
-        return facturaRepository.save(factura);
-    }
-
     @Override
     public void eliminarFactura(Long facturaId) {
         Factura factura = new Factura();

@@ -13,23 +13,16 @@ public class PasajeroServiceImplementacion implements PasajeroService {
     @Autowired
     private PasajeroRepository pasajeroRepository;
     @Override
-    public Pasajero agregarPasajero(Pasajero pasajero) {
+    public Pasajero agregarOActualizarPasajero(Pasajero pasajero) {
         return pasajeroRepository.save(pasajero);
     }
-
     @Override
     public List<Pasajero> buscarPasajeros() {
         return pasajeroRepository.findAll();
     }
-
     @Override
     public Pasajero buscarPasajero(Long pasajeroId) {
         return pasajeroRepository.findById(pasajeroId).orElse(null);
-    }
-
-    @Override
-    public Pasajero actualizarPasajero(Pasajero pasajero) {
-        return pasajeroRepository.save(pasajero);
     }
 
     @Override

@@ -1,9 +1,13 @@
 package com.example.demo.modelos;
 
-import javax.persistence.*;
-import java.util.HashSet;
-import java.util.Set;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
+import javax.persistence.*;
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @Table(name = "facturas")
 public class Factura {
@@ -16,48 +20,4 @@ public class Factura {
     @ManyToOne
     @JoinColumn(name = "reserva_id")
     private Reserva reserva;
-
-    public Long getFacturaId() {
-        return facturaId;
-    }
-
-    public void setFacturaId(Long facturaId) {
-        this.facturaId = facturaId;
-    }
-
-    public String getTipoPago() {
-        return tipoPago;
-    }
-
-    public void setTipoPago(String tipoPago) {
-        this.tipoPago = tipoPago;
-    }
-
-    public double getTotal() {
-        return total;
-    }
-
-    public void setTotal(double total) {
-        this.total = total;
-    }
-
-    public String getFechaEmision() {
-        return fechaEmision;
-    }
-
-    public void setFechaEmision(String fechaEmision) {
-        this.fechaEmision = fechaEmision;
-    }
-
-    public Reserva getReserva() {
-        return reserva;
-    }
-
-    public void setReserva(Reserva reserva) {
-        this.reserva = reserva;
-    }
-
-    public Factura() {
-
-    }
 }

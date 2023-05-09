@@ -16,7 +16,7 @@ public class FacturaController {
     private FacturaService facturaService;
     @PostMapping("/")
     public ResponseEntity<Factura> guardarFactura(@RequestBody Factura factura){
-        Factura facturaGuardada = facturaService.agregarFactura(factura);
+        Factura facturaGuardada = facturaService.agregaroActualizarFactura(factura);
         return ResponseEntity.ok(facturaGuardada);
     }
     @GetMapping
@@ -29,7 +29,7 @@ public class FacturaController {
     }
     @PutMapping("/")
     public Factura actualizarFactura(@RequestBody Factura factura){
-        return facturaService.actualizarFactura(factura);
+        return facturaService.agregaroActualizarFactura(factura);
     }
     @DeleteMapping("/{facturaId}")
     public void eliminarFactura(@PathVariable("facturaId") Long facturaId){

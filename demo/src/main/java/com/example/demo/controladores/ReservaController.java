@@ -16,7 +16,8 @@ public class ReservaController {
     private ReservaService reservaService;
     @PostMapping("/")
     public ResponseEntity<Reserva> guardarReserva(@RequestBody Reserva reserva){
-        Reserva reservaGuardada = reservaService.agregarReserva(reserva);
+        Reserva reservaGuardada = reservaService.agregarOActualizarReserva(reserva);
+        System.out.println("Reserva: " + reservaGuardada);
         return ResponseEntity.ok(reservaGuardada);
     }
     @GetMapping
@@ -29,7 +30,7 @@ public class ReservaController {
     }
     @PutMapping("/")
     public Reserva actualizarReserva(@RequestBody Reserva reserva){
-        return reservaService.actualizarReserva(reserva);
+        return reservaService.agregarOActualizarReserva(reserva);
     }
     @DeleteMapping("/{reservaId}")
     public void eliminarReservar(@PathVariable("reservaId") Long reservaId){

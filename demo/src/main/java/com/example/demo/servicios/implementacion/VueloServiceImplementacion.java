@@ -13,8 +13,9 @@ public class VueloServiceImplementacion implements VueloService {
 
     @Autowired
     private VueloRepository vueloRepository;
+
     @Override
-    public Vuelo agregarVuelo(Vuelo vuelo) {
+    public Vuelo agregarOActualizarVuelo(Vuelo vuelo) {
         return vueloRepository.save(vuelo);
     }
 
@@ -22,17 +23,10 @@ public class VueloServiceImplementacion implements VueloService {
     public List<Vuelo> buscarVuelos() {
         return vueloRepository.findAll();
     }
-
     @Override
     public Vuelo buscarVuelo(Long vueloId) {
         return vueloRepository.findById(vueloId).orElse(null);
     }
-
-    @Override
-    public Vuelo actualizarVuelo(Vuelo vuelo) {
-        return vueloRepository.save(vuelo);
-    }
-
     @Override
     public void eliminarVuelo(Long vueloId) {
         Vuelo vuelo = new Vuelo();

@@ -17,7 +17,7 @@ public class VueloController {
     private VueloService vueloService;
     @PostMapping("/")
     public ResponseEntity<Vuelo> guardarVuelo(@RequestBody Vuelo vuelo){
-        Vuelo vueloGuardado = vueloService.agregarVuelo(vuelo);
+        Vuelo vueloGuardado = vueloService.agregarOActualizarVuelo(vuelo);
         return ResponseEntity.ok(vueloGuardado);
     }
     @GetMapping
@@ -31,7 +31,7 @@ public class VueloController {
 
     @PutMapping("/")
     public Vuelo actualizarVuelo(@RequestBody Vuelo vuelo){
-        return vueloService.actualizarVuelo(vuelo);
+        return vueloService.agregarOActualizarVuelo(vuelo);
     }
 
     @DeleteMapping("/{vueloId}")

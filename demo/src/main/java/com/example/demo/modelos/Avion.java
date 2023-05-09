@@ -1,15 +1,17 @@
 package com.example.demo.modelos;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.util.HashSet;
-import java.util.Set;
 
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @Table(name = "aviones")
 public class Avion {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long avionId;
@@ -19,63 +21,4 @@ public class Avion {
     private String fabricante;
     private String anioFabricacion;
     private boolean activo = true;
-
-    public Long getAvionId() {
-        return avionId;
-    }
-
-    public void setAvionId(Long avionId) {
-        this.avionId = avionId;
-    }
-
-    public String getMarca() {
-        return marca;
-    }
-
-    public void setMarca(String marca) {
-        this.marca = marca;
-    }
-
-    public String getModelo() {
-        return modelo;
-    }
-
-    public void setModelo(String modelo) {
-        this.modelo = modelo;
-    }
-
-    public Integer getCapacidad() {
-        return capacidad;
-    }
-
-    public void setCapacidad(Integer capacidad) {
-        this.capacidad = capacidad;
-    }
-
-    public String getFabricante() {
-        return fabricante;
-    }
-
-    public void setFabricante(String fabricante) {
-        this.fabricante = fabricante;
-    }
-
-    public String getAnioFabricacion() {
-        return anioFabricacion;
-    }
-
-    public void setAnioFabricacion(String anioFabricacion) {
-        this.anioFabricacion = anioFabricacion;
-    }
-
-    public boolean isActivo() {
-        return activo;
-    }
-
-    public void setActivo(boolean activo) {
-        this.activo = activo;
-    }
-
-    public Avion() {
-    }
 }

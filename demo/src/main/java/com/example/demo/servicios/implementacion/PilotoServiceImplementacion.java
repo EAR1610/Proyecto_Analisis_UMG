@@ -14,7 +14,7 @@ public class PilotoServiceImplementacion implements PilotoService {
     private PilotoRepository pilotoRepository;
 
     @Override
-    public Piloto agregarPiloto(Piloto piloto) {
+    public Piloto agregarOActualizarPiloto(Piloto piloto) {
         return pilotoRepository.save(piloto);
     }
 
@@ -22,15 +22,9 @@ public class PilotoServiceImplementacion implements PilotoService {
     public List<Piloto> buscarPilotos() {
         return pilotoRepository.findAll();
     }
-
     @Override
     public Piloto buscarPiloto(Long pilotoId) {
         return pilotoRepository.findById(pilotoId).orElse(null);
-    }
-
-    @Override
-    public Piloto actualizarPiloto(Piloto piloto) {
-        return pilotoRepository.save(piloto);
     }
 
     @Override

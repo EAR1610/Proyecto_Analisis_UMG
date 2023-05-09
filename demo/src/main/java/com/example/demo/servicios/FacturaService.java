@@ -7,9 +7,8 @@ import java.util.List;
 
 @Service
 public interface FacturaService {
-    Factura agregarFactura(Factura factura);
+    Factura agregaroActualizarFactura(Factura factura);
     List<Factura> buscarFacturas();
     Factura buscarFactura(Long facturaId);
-    Factura actualizarFactura(Factura factura);
     void eliminarFactura(Long facturaId);
 }

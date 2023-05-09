@@ -17,7 +17,7 @@ public class PasajeroController {
 
     @PostMapping("/")
     public ResponseEntity<Pasajero> guardarPasajero(@RequestBody Pasajero pasajero){
-        Pasajero pasajeroGuardado = pasajeroService.agregarPasajero(pasajero);
+        Pasajero pasajeroGuardado = pasajeroService.agregarOActualizarPasajero(pasajero);
         return ResponseEntity.ok(pasajeroGuardado);
     }
 
@@ -33,7 +33,7 @@ public class PasajeroController {
 
     @PutMapping("/")
     public Pasajero actualizarPasajero(@RequestBody Pasajero pasajero){
-        return pasajeroService.actualizarPasajero(pasajero);
+        return pasajeroService.agregarOActualizarPasajero(pasajero);
     }
 
     @DeleteMapping("/{pasajeroId}")

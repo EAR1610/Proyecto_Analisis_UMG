@@ -7,9 +7,8 @@ import java.util.List;
 
 @Service
 public interface VueloService {
-    Vuelo agregarVuelo(Vuelo vuelo);
+    Vuelo agregarOActualizarVuelo(Vuelo vuelo);
     List<Vuelo> buscarVuelos();
     Vuelo buscarVuelo(Long vueloId);
-    Vuelo actualizarVuelo(Vuelo vuelo);
     void eliminarVuelo(Long vueloId);
 }

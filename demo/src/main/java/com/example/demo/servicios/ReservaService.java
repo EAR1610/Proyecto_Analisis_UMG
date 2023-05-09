@@ -7,9 +7,8 @@ import java.util.List;
 
 @Service
 public interface ReservaService {
-    Reserva agregarReserva(Reserva reserva);
+    Reserva agregarOActualizarReserva(Reserva reserva);
     List<Reserva> buscarReservas();
     Reserva buscarReserva(Long reservaId);
-    Reserva actualizarReserva(Reserva reserva);
     void eliminarReserva(Long reservaId);
 }
